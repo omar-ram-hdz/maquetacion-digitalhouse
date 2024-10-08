@@ -1,0 +1,242 @@
+/* 
+  font-family: "Inconsolata", monospace;
+  font-family: 'Roboto Mono', monospace;
+ */
+* {
+  box-sizing: border-box;
+  font-family: "Inconsolata", monospace;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  text-decoration: none;
+  color: white;
+}
+a,
+button,
+#menuIcon {
+  cursor: pointer;
+}
+
+body {
+  background-color: #222222; /*TODO: Borrar después*/
+}
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1;
+  display: flex;
+  justify-content: space-evenly;
+  padding: 15px 13px;
+  background-color: transparent;
+}
+
+.navList {
+  display: flex;
+  justify-content: space-around;
+  & a {
+    margin-left: 60px;
+    font-size: 25px;
+    font-weight: 600;
+    border-bottom: 2px solid transparent;
+    transition: all 0.5s ease-out;
+    &:hover {
+      border-bottom: 2.1px solid white;
+    }
+  }
+}
+
+.logo {
+  font-size: 30px;
+  font-weight: 800;
+}
+
+#menuIcon {
+  color: white;
+  font-size: 35px;
+  z-index: 2;
+}
+
+#menuToggle,
+#menuIcon,
+.menuIconAction {
+  display: none;
+}
+
+.hero {
+  width: 100%;
+  height: 100%;
+  min-height: 100vh;
+  background: linear-gradient(245.59deg, #31494e 0%, #385e70 25%, #131313 75%);
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 2rem;
+}
+
+section {
+  padding: 0 8%;
+}
+
+.heroText {
+  & h1 {
+    font-family: "Roboto Mono", monospace;
+    font-size: 50px;
+    line-height: 1;
+    margin: 0 0 30px;
+  }
+  & h5 {
+    font-size: 14px;
+    font-weight: 300;
+    margin-bottom: 25px;
+  }
+  & h4 {
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 10px;
+  }
+  & p {
+    font-size: 80%;
+    margin-bottom: 40px;
+    line-height: 1.9;
+  }
+  & a {
+    display: inline-block;
+    background-color: #4d4d4d;
+    border: 1px solid transparent;
+    padding: 15px 30px;
+    line-height: 1.4;
+    font-size: 14px;
+    font-weight: 500;
+    border-radius: 30px;
+    text-transform: uppercase;
+    margin-left: 5%;
+    transition: transform 0.4s ease-in, border 0.4s ease-in,
+      background-color 0.4s ease-in;
+  }
+  & a:hover {
+    background-color: transparent;
+    border: 1px solid white;
+    transform: translateX(4px);
+  }
+}
+
+.heroImg {
+  & img {
+    width: 400px;
+    clip-path: circle(50%);
+    transition: all 0.5s linear;
+  }
+  & img:hover {
+    width: 450px;
+    opacity: 0.6s;
+  }
+}
+
+.asideIcons {
+  position: absolute;
+  top: 50vh;
+  padding: 0 3%;
+  transform: translateY(-50%);
+  & i {
+    display: block;
+    margin: 50px 0;
+    font-size: 35px;
+    transition: all 0.5s ease;
+  }
+  & i:hover {
+    color: #4d4d4d;
+    transform: translateY(4px);
+  }
+}
+
+.scrollDown {
+  position: absolute;
+  bottom: 6%;
+  right: 3%;
+  & i {
+    display: block;
+    padding: 12px;
+    font-size: 30px;
+    background-color: #21383d;
+    border-radius: 30px;
+    transition: all 0.5s ease-in-out;
+  }
+  & i:hover {
+    transform: translateY(-5px);
+  }
+}
+
+@media (max-width: 992px) {
+  section {
+    padding: 0 3%;
+    transition: 0.2s;
+  }
+  .heroText {
+    padding-top: 0;
+  }
+  .heroImg {
+    text-align: center;
+    & img {
+      width: 80%;
+      margin: 10% 0 0 10%;
+    }
+  }
+  .scrollDown {
+    display: none;
+  }
+  .asideIcons {
+    display: none;
+    /* position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 2;
+    display: flex;
+    justify-content: space-around; */
+  }
+}
+
+@media (max-width: 768px) {
+  .menuIconAction {
+    display: block;
+  }
+  #menuIcon {
+    display: block;
+  }
+  .hero {
+    height: 100%;
+    gap: 1rem;
+    grid-template-columns: 1fr;
+  }
+  .heroText {
+    text-align: center;
+    padding-top: 100px;
+    & img {
+      margin: 0;
+    }
+  }
+  .navList {
+    position: absolute;
+    top: 100%;
+    right: -100%;
+    width: 200px;
+    height: 180px;
+    background-color: #021719ef;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 30px 20px;
+    transition: all 0.5s ease;
+    & a {
+      margin-left: 0;
+      display: block;
+      margin-left: 7px 0px;
+    }
+  }
+  #menuToggle:checked + label.menuIconAction + nav > ul {
+    right: 0;
+  }
+}
